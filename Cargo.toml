@@ -1,0 +1,13 @@
+# SPDX-FileCopyrightText: The if-none authors
+# SPDX-License-Identifier: MPL-2.0
+
+[package]
+name = "if-none"
+description = "Early break/continue/return if an optional expression evaluates to `None`."
+version = "0.0.1"
+license = "MPL-2.0"
+readme = "README.md"
+repository = "https://github.com/uklotzde/if-none"
+keywords = ["option", "none", "some"]
+categories = ["rust-patterns"]
+edition = "2021"
