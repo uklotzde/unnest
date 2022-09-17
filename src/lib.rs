@@ -8,6 +8,8 @@
 #![warn(unreachable_pub)]
 #![warn(unsafe_code)]
 #![warn(clippy::pedantic)]
+// Suppress clippy warnings when using the macros on std::result:.Result::ok()
+#![allow(clippy::match_result_ok)]
 #![warn(rustdoc::broken_intra_doc_links)]
 #![cfg_attr(not(test), deny(clippy::panic_in_result_fn))]
 #![cfg_attr(not(debug_assertions), deny(clippy::used_underscore_binding))]
