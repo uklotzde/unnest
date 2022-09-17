@@ -69,3 +69,51 @@ macro_rules! if_none_return_with {
         }
     };
 }
+
+/// Break if a `Result` expression evaluates to `Err`.
+#[macro_export]
+macro_rules! if_err_break {
+    ($var:expr) => {
+        if let ::core::result::Result::Ok(some) = $var {
+            some
+        } else {
+            break;
+        }
+    };
+}
+
+/// Continue if a `Result` expression evaluates to `Err`.
+#[macro_export]
+macro_rules! if_err_continue {
+    ($var:expr) => {
+        if let ::core::result::Result::Ok(some) = $var {
+            some
+        } else {
+            continue;
+        }
+    };
+}
+
+/// Return if a `Result` expression evaluates to `Err`.
+#[macro_export]
+macro_rules! if_err_return {
+    ($var:expr) => {
+        if let ::core::result::Result::Ok(some) = $var {
+            some
+        } else {
+            return;
+        }
+    };
+}
+
+/// Return a residual value if a `Result` expression evaluates to `Err`.
+#[macro_export]
+macro_rules! if_err_return_with {
+    ($var:expr, $ret:expr) => {
+        if let ::core::result::Result::Ok(some) = $var {
+            some
+        } else {
+            return $ret;
+        }
+    };
+}

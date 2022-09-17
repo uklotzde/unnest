@@ -4,7 +4,7 @@
 [package]
 name = "if-none"
 description = "Early break/continue/return if an optional expression evaluates to `None`."
-version = "0.0.3"
+version = "0.0.5"
 license = "MPL-2.0"
 readme = "README.md"
 repository = "https://github.com/uklotzde/if-none"
