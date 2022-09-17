@@ -8,8 +8,6 @@
 #![warn(unreachable_pub)]
 #![warn(unsafe_code)]
 #![warn(clippy::pedantic)]
-// Suppress clippy warnings when using the macros on std::result:.Result::ok()
-#![allow(clippy::match_result_ok)]
 #![warn(rustdoc::broken_intra_doc_links)]
 #![cfg_attr(not(test), deny(clippy::panic_in_result_fn))]
 #![cfg_attr(not(debug_assertions), deny(clippy::used_underscore_binding))]
@@ -28,6 +26,8 @@ pub mod docs {
 #[macro_export]
 macro_rules! if_none_break {
     ($var:expr) => {
+        // Suppress clippy warnings when using the macros on std::result:.Result::ok()
+        #[allow(clippy::match_result_ok)]
         if let Some(some) = $var {
             some
         } else {
@@ -40,6 +40,8 @@ macro_rules! if_none_break {
 #[macro_export]
 macro_rules! if_none_continue {
     ($var:expr) => {
+        // Suppress clippy warnings when using the macros on std::result:.Result::ok()
+        #[allow(clippy::match_result_ok)]
         if let Some(some) = $var {
             some
         } else {
@@ -52,6 +54,8 @@ macro_rules! if_none_continue {
 #[macro_export]
 macro_rules! if_none_return {
     ($var:expr) => {
+        // Suppress clippy warnings when using the macros on std::result:.Result::ok()
+        #[allow(clippy::match_result_ok)]
         if let Some(some) = $var {
             some
         } else {
@@ -64,6 +68,8 @@ macro_rules! if_none_return {
 #[macro_export]
 macro_rules! if_none_return_with {
     ($var:expr, $ret:expr) => {
+        // Suppress clippy warnings when using the macros on std::result:.Result::ok()
+        #[allow(clippy::match_result_ok)]
         if let Some(some) = $var {
             some
         } else {
