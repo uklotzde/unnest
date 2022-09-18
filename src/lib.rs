@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: The if-none authors
+// SPDX-FileCopyrightText: The unnest authors
 // SPDX-License-Identifier: MPL-2.0
 
 #![warn(rust_2018_idioms)]

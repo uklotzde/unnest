@@ -1,16 +1,16 @@
-<!-- SPDX-FileCopyrightText: The if-none authors -->
+<!-- SPDX-FileCopyrightText: The unnest authors -->
 <!-- SPDX-License-Identifier: MPL-2.0 -->
 
-# if-none
+# unnest
 
-[![Crates.io](https://img.shields.io/crates/v/if-none.svg)](https://crates.io/crates/if-none)
-[![Docs.rs](https://docs.rs/if-none/badge.svg)](https://docs.rs/if-none)
-[![Deps.rs](https://deps.rs/repo/github/uklotzde/if-none/status.svg)](https://deps.rs/repo/github/uklotzde/if-none)
-[![Security audit](https://github.com/uklotzde/if-none/actions/workflows/security-audit.yaml/badge.svg)](https://github.com/uklotzde/if-none/actions/workflows/security-audit.yaml)
-[![Continuous integration](https://github.com/uklotzde/if-none/actions/workflows/continuous-integration.yaml/badge.svg)](https://github.com/uklotzde/if-none/actions/workflows/continuous-integration.yaml)
+[![Crates.io](https://img.shields.io/crates/v/unnest.svg)](https://crates.io/crates/unnest)
+[![Docs.rs](https://docs.rs/unnest/badge.svg)](https://docs.rs/unnest)
+[![Deps.rs](https://deps.rs/repo/github/uklotzde/unnest/status.svg)](https://deps.rs/repo/github/uklotzde/unnest)
+[![Security audit](https://github.com/uklotzde/unnest/actions/workflows/security-audit.yaml/badge.svg)](https://github.com/uklotzde/unnest/actions/workflows/security-audit.yaml)
+[![Continuous integration](https://github.com/uklotzde/unnest/actions/workflows/continuous-integration.yaml/badge.svg)](https://github.com/uklotzde/unnest/actions/workflows/continuous-integration.yaml)
 [![License: MPL 2.0](https://img.shields.io/badge/License-MPL_2.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)
 
-Early break/continue/return if an optional expression evaluates to `None`.
+Macros for an unnested control flow.
 
 ## License
 
