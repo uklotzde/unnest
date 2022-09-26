@@ -1,6 +1,11 @@
 # SPDX-FileCopyrightText: The unnest authors
 # SPDX-License-Identifier: CC0-1.0
 
-tabWidth: 2
-# in double quotes you can use escapes
-singleQuote: false
+overrides:
+  - files:
+      - "**/*.yaml"
+      - "**/*.yml"
+    options:
+      tabWidth: 2
+      # in double quotes you can use escapes
+      singleQuote: false

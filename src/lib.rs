@@ -24,9 +24,9 @@ pub mod docs {
 
 /// Break if an optional expression evaluates to `None`.
 #[macro_export]
-macro_rules! if_none_break {
-    ($var:expr) => {
-        if let Some(some) = $var {
+macro_rules! some_or_break {
+    ($expr:expr) => {
+        if let ::core::option::Option::Some(some) = $expr {
             some
         } else {
             break;
@@ -36,9 +36,9 @@ macro_rules! if_none_break {
 
 /// Continue if an optional expression evaluates to `None`.
 #[macro_export]
-macro_rules! if_none_continue {
-    ($var:expr) => {
-        if let Some(some) = $var {
+macro_rules! some_or_continue {
+    ($expr:expr) => {
+        if let ::core::option::Option::Some(some) = $expr {
             some
         } else {
             continue;
@@ -48,9 +48,9 @@ macro_rules! if_none_continue {
 
 /// Return if an optional expression evaluates to `None`.
 #[macro_export]
-macro_rules! if_none_return {
-    ($var:expr) => {
-        if let Some(some) = $var {
+macro_rules! some_or_return {
+    ($expr:expr) => {
+        if let ::core::option::Option::Some(some) = $expr {
             some
         } else {
             return;
@@ -60,22 +60,22 @@ macro_rules! if_none_return {
 
 /// Return a residual value if an optional expression evaluates to `None`.
 #[macro_export]
-macro_rules! if_none_return_with {
-    ($var:expr, $ret:expr) => {
-        if let Some(some) = $var {
+macro_rules! some_or_return_with {
+    ($expr:expr, $with:expr) => {
+        if let ::core::option::Option::Some(some) = $expr {
             some
         } else {
-            return $ret;
+            return $with;
         }
     };
 }
 
 /// Break if a `Result` expression evaluates to `Err`.
 #[macro_export]
-macro_rules! if_err_break {
-    ($var:expr) => {
-        if let ::core::result::Result::Ok(some) = $var {
-            some
+macro_rules! ok_or_break {
+    ($expr:expr) => {
+        if let ::core::result::Result::Ok(ok) = $expr {
+            ok
         } else {
             break;
         }
@@ -84,10 +84,10 @@ macro_rules! if_err_break {
 
 /// Continue if a `Result` expression evaluates to `Err`.
 #[macro_export]
-macro_rules! if_err_continue {
-    ($var:expr) => {
-        if let ::core::result::Result::Ok(some) = $var {
-            some
+macro_rules! ok_or_continue {
+    ($expr:expr) => {
+        if let ::core::result::Result::Ok(ok) = $expr {
+            ok
         } else {
             continue;
         }
@@ -96,24 +96,39 @@ macro_rules! if_err_continue {
 
 /// Return if a `Result` expression evaluates to `Err`.
 #[macro_export]
-macro_rules! if_err_return {
-    ($var:expr) => {
-        if let ::core::result::Result::Ok(some) = $var {
-            some
+macro_rules! ok_or_return {
+    ($expr:expr) => {
+        if let ::core::result::Result::Ok(ok) = $expr {
+            ok
         } else {
             return;
         }
     };
 }
 
+/// Return the error if a `Result` expression evaluates to `Err`.
+///
+/// A light-weight version of the question mark operator `?`.
+///
+/// See also: <https://twitter.com/mitsuhiko/status/1574111445473579008>
+#[macro_export]
+macro_rules! ok_or_return_err {
+    ($expr:expr) => {
+        match $expr {
+            ::core::result::Result::Ok(ok) => ok,
+            ::core::result::Result::Err(err) => return err,
+        }
+    };
+}
+
 /// Return a residual value if a `Result` expression evaluates to `Err`.
 #[macro_export]
-macro_rules! if_err_return_with {
-    ($var:expr, $ret:expr) => {
-        if let ::core::result::Result::Ok(some) = $var {
-            some
+macro_rules! ok_or_return_with {
+    ($expr:expr, $with:expr) => {
+        if let ::core::result::Result::Ok(ok) = $expr {
+            ok
         } else {
-            return $ret;
+            return $with;
         }
     };
 }

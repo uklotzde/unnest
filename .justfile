@@ -18,7 +18,6 @@ check:
 # Run unit tests
 test:
     RUST_BACKTRACE=1 cargo test --locked --workspace -- --nocapture
-    RUST_BACKTRACE=1 cargo test --locked --workspace --features tokio -- --nocapture
 
 # Set up (and update) tooling
 setup:
