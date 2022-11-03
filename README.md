@@ -10,7 +10,9 @@
 [![Continuous integration](https://github.com/uklotzde/unnest/actions/workflows/continuous-integration.yaml/badge.svg)](https://github.com/uklotzde/unnest/actions/workflows/continuous-integration.yaml)
 [![License: MPL 2.0](https://img.shields.io/badge/License-MPL_2.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)
 
-Macros for an unnested control flow.
+Macros for an _unnested_ control flow. In contrast to
+[`let-else` statements](https://blog.rust-lang.org/2022/11/03/Rust-1.65.0.html#let-else-statements)
+these macros evaluate to expressions.
 
 ## License
 

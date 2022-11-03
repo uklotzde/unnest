@@ -4,10 +4,10 @@
 [package]
 name = "unnest"
 description = "Macros for an unnested control flow."
-version = "0.1.0"
+version = "0.3.0"
 license = "MPL-2.0"
 readme = "README.md"
 repository = "https://github.com/uklotzde/unnest"
-keywords = ["option", "none", "some"]
+keywords = ["option", "some", "result", "ok", "expression"]
 categories = ["rust-patterns"]
 edition = "2021"
