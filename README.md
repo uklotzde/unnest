@@ -3,14 +3,9 @@
 
 # unnest
 
-[![Crates.io](https://img.shields.io/crates/v/unnest.svg)](https://crates.io/crates/unnest)
-[![Docs.rs](https://docs.rs/unnest/badge.svg)](https://docs.rs/unnest)
-[![Deps.rs](https://deps.rs/repo/github/uklotzde/unnest/status.svg)](https://deps.rs/repo/github/uklotzde/unnest)
-[![Security audit](https://github.com/uklotzde/unnest/actions/workflows/security-audit.yaml/badge.svg)](https://github.com/uklotzde/unnest/actions/workflows/security-audit.yaml)
-[![Continuous integration](https://github.com/uklotzde/unnest/actions/workflows/continuous-integration.yaml/badge.svg)](https://github.com/uklotzde/unnest/actions/workflows/continuous-integration.yaml)
-[![License: MPL 2.0](https://img.shields.io/badge/License-MPL_2.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)
+This crates has been retired.
 
-Macros for an unnested control flow.
+Use [`let-else` statements](https://blog.rust-lang.org/2022/11/03/Rust-1.65.0.html#let-else-statements) instead.
 
 ## License
 
