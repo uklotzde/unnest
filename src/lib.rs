@@ -132,3 +132,75 @@ macro_rules! ok_or_return_with {
         }
     };
 }
+
+#[cfg(test)]
+mod tests {
+    #[test]
+    #[allow(clippy::while_let_loop)]
+    fn some_or_break() {
+        loop {
+            some_or_break!(None);
+            unreachable!();
+        }
+    }
+
+    #[test]
+    #[allow(clippy::needless_continue)]
+    fn some_or_continue() {
+        let mut loop_count = 0;
+        loop {
+            loop_count += 1;
+            assert_eq!(1, loop_count);
+            some_or_continue!(Some(()));
+            break;
+        }
+    }
+
+    #[test]
+    fn some_or_return() {
+        some_or_return!(None);
+        unreachable!();
+    }
+
+    #[test]
+    #[allow(clippy::unused_unit)]
+    fn some_or_return_with() {
+        some_or_return_with!(None, ());
+        unreachable!();
+    }
+
+    #[test]
+    #[allow(clippy::while_let_loop)]
+    fn ok_or_break() {
+        loop {
+            ok_or_break!(Err(()));
+            unreachable!();
+        }
+    }
+
+    #[test]
+    #[allow(clippy::needless_continue)]
+    fn ok_or_continue() {
+        let mut loop_count = 0;
+        let ok: Result<_, ()> = Ok(());
+        loop {
+            loop_count += 1;
+            assert_eq!(1, loop_count);
+            ok_or_continue!(ok);
+            break;
+        }
+    }
+
+    #[test]
+    fn ok_or_return() {
+        ok_or_return!(Err(()));
+        unreachable!();
+    }
+
+    #[test]
+    #[allow(clippy::unused_unit)]
+    fn ok_or_return_with() {
+        ok_or_return_with!(Err(()), ());
+        unreachable!();
+    }
+}
