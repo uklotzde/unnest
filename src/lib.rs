@@ -26,7 +26,7 @@ pub mod docs {
 #[macro_export]
 macro_rules! some_or_break {
     ($expr:expr) => {
-        if Some(::core::option::Option::Some(some)) = $expr {
+        if let ::core::option::Option::Some(some) = $expr {
             some
         } else {
             break;
