@@ -3,7 +3,7 @@
 
 # yaml-language-server: $schema=https://json.schemastore.org/github-workflow
 
-name: continuous-integration
+name: build-and-test
 
 permissions:
   contents: read
@@ -20,8 +20,7 @@ env:
   RUST_BACKTRACE: short
 
 jobs:
-  continuous-integration:
-    name: Building project and running tests
+  run:
     runs-on: ubuntu-latest
 
     steps:
@@ -29,7 +28,7 @@ jobs:
         uses: dtolnay/rust-toolchain@stable
 
       - name: Check out repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Generate Cargo.lock
         run: cargo generate-lockfile
@@ -37,11 +36,8 @@ jobs:
       - name: Cache Rust toolchain and build artifacts
         uses: Swatinem/rust-cache@v2
         with:
-          # Distinguished by the action name to avoid sharing across different actions!
-          shared-key: "continuous-integration"
-
-      - name: Build tests
-        run: cargo test --locked --all-targets --no-run
+          # The cache should not be shared between different workflows and jobs.
+          shared-key: ${{ github.workflow }}-${{ github.job }}
 
       - name: Run tests
         run: cargo test --locked --all-targets -- --nocapture --quiet

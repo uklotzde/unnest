@@ -26,12 +26,12 @@ setup:
     # cargo-edit is needed for `cargo upgrade`
     cargo install cargo-edit just
     pip install -U pre-commit
-    pre-commit install --hook-type commit-msg --hook-type pre-commit
+    #pre-commit install --hook-type commit-msg --hook-type pre-commit
 
 # Upgrade (and update) dependencies
 upgrade: setup
     pre-commit autoupdate
-    cargo upgrade
+    cargo upgrade --incompatible
     cargo update
 
 # Run pre-commit hooks
