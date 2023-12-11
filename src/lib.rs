@@ -136,6 +136,7 @@ macro_rules! ok_or_return_with {
 #[cfg(test)]
 mod tests {
     #[test]
+    #[allow(clippy::never_loop)]
     #[allow(clippy::while_let_loop)]
     fn some_or_break() {
         loop {
@@ -170,6 +171,7 @@ mod tests {
     }
 
     #[test]
+    #[allow(clippy::never_loop)]
     #[allow(clippy::while_let_loop)]
     fn ok_or_break() {
         loop {
